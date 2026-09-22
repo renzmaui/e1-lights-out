@@ -1,0 +1,1440 @@
+@import url("https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap");
+
+:root {
+  font-family: "DM Sans", sans-serif;
+
+  color: #171717;
+  background: #fffdf7;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  min-width: 320px;
+  min-height: 100%;
+}
+
+body {
+  margin: 0;
+  background: #fffdf7;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.page {
+  min-height: 100vh;
+  min-height: 100svh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 32px 18px;
+
+  background:
+    radial-gradient(
+      circle at 8% 8%,
+      rgba(213, 46, 69, 0.1),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 92% 92%,
+      rgba(30, 139, 97, 0.1),
+      transparent 30%
+    ),
+    #fffdf7;
+}
+
+/* =========================================================
+   GAME CARD
+========================================================= */
+
+.game-card {
+  width: min(100%, 570px);
+
+  padding: 30px;
+
+  background: #ffffff;
+
+  border: 2px solid #171717;
+  border-radius: 26px;
+
+  box-shadow: 9px 9px 0 #171717;
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+  display: flex;
+
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.eyebrow {
+  display: block;
+
+  font-family:
+    "Space Mono",
+    monospace;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+}
+
+h1 {
+  margin: 10px 0 0;
+
+  font-family:
+    "Bricolage Grotesque",
+    sans-serif;
+
+  font-size: clamp(
+    48px,
+    11vw,
+    74px
+  );
+
+  font-weight: 800;
+
+  line-height: 0.83;
+
+  letter-spacing: -0.06em;
+}
+
+.race-icon {
+  font-size: 38px;
+
+  transform:
+    rotate(-8deg);
+}
+
+.subtitle {
+  margin: 18px 0 22px;
+
+  color: #666666;
+
+  font-size: 15px;
+
+  line-height: 1.55;
+}
+
+/* =========================================================
+   PLAYER
+========================================================= */
+
+.player-section {
+  margin-bottom: 18px;
+}
+
+.player-section label {
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-family:
+    "Space Mono",
+    monospace;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.05em;
+}
+
+.player-section input {
+  width: 100%;
+
+  padding: 13px 14px;
+
+  border: 1.5px solid #171717;
+
+  border-radius: 11px;
+
+  outline: none;
+
+  background: #fffdf7;
+
+  color: #171717;
+
+  font-size: 15px;
+}
+
+.player-section input::placeholder {
+  color: #999999;
+}
+
+.player-section input:focus {
+  box-shadow:
+    3px 3px 0 #f2c94c;
+}
+
+.player-section input:disabled {
+  opacity: 0.65;
+}
+
+/* =========================================================
+   REACTION AREA
+========================================================= */
+
+.reaction-area {
+  width: 100%;
+
+  display: block;
+
+  padding: 0;
+
+  border: 0;
+
+  background: transparent;
+
+  color: inherit;
+
+  outline: none;
+
+  cursor: default;
+
+  touch-action: manipulation;
+}
+
+.reaction-area:disabled {
+  cursor: default;
+}
+
+.reaction-waiting {
+  cursor: pointer;
+}
+
+.reaction-active {
+  cursor: pointer;
+}
+
+/* =========================================================
+   GANTRY
+========================================================= */
+
+.starting-gantry {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  padding:
+    21px 18px
+    18px;
+
+  border: 2px solid #171717;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #2b2b2b 0%,
+      #181818 100%
+    );
+
+  box-shadow:
+    inset 0 0 0 1px
+      rgba(255, 255, 255, 0.07),
+    inset 0 -18px 30px
+      rgba(0, 0, 0, 0.3),
+    0 5px 0 #080808;
+
+  transition:
+    transform 0.08s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.gantry-top {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 18px;
+
+  color: #ffffff;
+
+  font-family:
+    "Space Mono",
+    monospace;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+}
+
+.gantry-top span:last-child {
+  color: #f2c94c;
+}
+
+/* =========================================================
+   TWO ROW × FIVE COLUMN LIGHT GRID
+========================================================= */
+
+.light-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, 1fr);
+
+  gap: 8px;
+
+  width: 100%;
+
+  padding:
+    8px 4px
+    15px;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.25),
+      rgba(0, 0, 0, 0)
+    );
+
+  border-radius: 13px;
+}
+
+.light-column {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 9px;
+}
+
+/* =========================================================
+   INDIVIDUAL LIGHT
+========================================================= */
+
+.race-light {
+  position: relative;
+
+  width: 100%;
+
+  max-width: 66px;
+
+  aspect-ratio: 1;
+
+  display: grid;
+
+  place-items: center;
+
+  border: 4px solid #070707;
+
+  border-radius: 50%;
+
+  background: #2d2d2d;
+
+  box-shadow:
+    inset 0 5px 8px
+      rgba(255, 255, 255, 0.04),
+    inset 0 -8px 12px
+      rgba(0, 0, 0, 0.58);
+}
+
+.race-light-off {
+  background:
+    radial-gradient(
+      circle at 50% 43%,
+      #444444 0%,
+      #2c2c2c 45%,
+      #181818 100%
+    );
+}
+
+.race-light-red {
+  background:
+    radial-gradient(
+      circle at 48% 40%,
+      #ff929e 0%,
+      #d52e45 35%,
+      #8b1d2c 72%,
+      #54131d 100%
+    );
+
+  box-shadow:
+    0 0 15px
+      rgba(213, 46, 69, 0.9),
+    0 0 30px
+      rgba(213, 46, 69, 0.38),
+    inset 0 4px 7px
+      rgba(255, 255, 255, 0.2),
+    inset 0 -8px 12px
+      rgba(0, 0, 0, 0.4);
+}
+
+.race-light-green {
+  background:
+    radial-gradient(
+      circle at 48% 40%,
+      #a0ffca 0%,
+      #1e8b61 37%,
+      #105239 72%,
+      #082b1e 100%
+    );
+
+  border-color: #061a12;
+
+  box-shadow:
+    0 0 25px
+      rgba(30, 139, 97, 1),
+    0 0 50px
+      rgba(30, 139, 97, 0.62),
+    inset 0 4px 7px
+      rgba(255, 255, 255, 0.22),
+    inset 0 -8px 12px
+      rgba(0, 0, 0, 0.4);
+
+  animation:
+    greenFlash
+    0.42s
+    ease-out;
+}
+
+.race-light::after {
+  content: "";
+
+  position: absolute;
+
+  top: 10%;
+  left: 19%;
+
+  width: 30%;
+  height: 18%;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255, 255, 255, 0.4);
+
+  filter: blur(1px);
+
+  pointer-events: none;
+}
+
+.race-light-active {
+  animation:
+    redPulse
+    0.48s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+/* =========================================================
+   GANTRY BAR / STATUS
+========================================================= */
+
+.gantry-bar {
+  height: 5px;
+
+  margin:
+    0 7px;
+
+  border-radius: 99px;
+
+  background: #070707;
+
+  box-shadow:
+    0 1px 0
+      rgba(255, 255, 255, 0.08);
+}
+
+.gantry-status {
+  margin-top: 13px;
+
+  text-align: center;
+
+  color: #ffffff;
+
+  font-family:
+    "Space Mono",
+    monospace;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.13em;
+}
+
+.gantry-green {
+  border-color: #1e8b61;
+
+  box-shadow:
+    0 0 0 3px
+      rgba(30, 139, 97, 0.14),
+    0 5px 0 #080808,
+    inset 0 0 35px
+      rgba(30, 139, 97, 0.12);
+}
+
+.gantry-green
+  .gantry-status {
+  color: #8cf1bb;
+}
+
+.gantry-false {
+  border-color: #d52e45;
+}
+
+.gantry-false
+  .gantry-status {
+  color: #ff7c89;
+}
+
+/* =========================================================
+   ACTIVE REACTION STATE
+========================================================= */
+
+.reaction-active
+  .starting-gantry {
+  transform: scale(1.018);
+
+  border-color: #1e8b61;
+
+  box-shadow:
+    0 0 0 4px
+      rgba(30, 139, 97, 0.18),
+    0 5px 0 #080808,
+    inset 0 0 45px
+      rgba(30, 139, 97, 0.16);
+}
+
+.reaction-active
+  .starting-gantry:hover {
+  box-shadow:
+    0 0 0 5px
+      rgba(30, 139, 97, 0.25),
+    0 5px 0 #080808,
+    inset 0 0 55px
+      rgba(30, 139, 97, 0.18);
+}
+
+.reaction-active:active
+  .starting-gantry {
+  transform: scale(0.985);
+}
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes redPulse {
+  from {
+    box-shadow:
+      0 0 9px
+        rgba(213, 46, 69, 0.55),
+      inset 0 4px 7px
+        rgba(255, 255, 255, 0.1),
+      inset 0 -8px 12px
+        rgba(0, 0, 0, 0.4);
+  }
+
+  to {
+    box-shadow:
+      0 0 25px
+        rgba(213, 46, 69, 1),
+      0 0 46px
+        rgba(213, 46, 69, 0.35),
+      inset 0 4px 7px
+        rgba(255, 255, 255, 0.2),
+      inset 0 -8px 12px
+        rgba(0, 0, 0, 0.4);
+  }
+}
+
+@keyframes greenFlash {
+  0% {
+    transform: scale(0.78);
+    opacity: 0.4;
+  }
+
+  45% {
+    transform: scale(1.12);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* =========================================================
+   TAP HINT
+========================================================= */
+
+.tap-hint {
+  margin-top: 13px;
+
+  min-height: 16px;
+
+  color: #777777;
+
+  font-family:
+    "Space Mono",
+    monospace;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.07em;
+
+  text-align: center;
+}
+
+.tap-hint-go {
+  color: #1e8b61;
+
+  font-size: 11px;
+
+  animation:
+    tapPulse
+    0.4s
+    ease-in-out
+    infinite
+    alternate;
+}
+
+@keyframes tapPulse {
+  from {
+    transform: scale(1);
+  }
+
+  to {
+    transform: scale(1.045);
+  }
+}
+
+/* =========================================================
+   INSTRUCTIONS
+========================================================= */
+
+.instructions {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 9px;
+
+  margin: 18px 0;
+
+  padding: 16px;
+
+  border-radius: 14px;
+
+  background: #f6f0df;
+}
+
+.instruction-row {
+  display: grid;
+
+  grid-template-columns:
+    30px 1fr;
+
+  align-items: center;
+
+  gap: 10px;
+}
+
+.instruction-row span {
+  width: 28px;
+  height: 28px;
+
+  display: grid;
+
+  place-items: center;
+
+  border-radius: 50%;
+
+  background: #171717;
+
+  color: #ffffff;
+
+  font-family:
+    "Space Mono",
+    monospace;
+
+  font-size: 9px;
+
+  font-weight: 700;
+}
+
+.instruction-row p {
+  margin: 0;
+
+  font-size: 13px;
+
+  font-weight: 600;
+
+  line-height: 1.35;
+}
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.status-message {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  margin: 17px 0;
+
+  text-align: center;
+}
+
+.status-message strong {
+  font-family:
+    "Bricolage Grotesque",
+    sans-serif;
+
+  font-size: 20px;
+}
+
+.status-message span {
+  margin-top: 3px;
+
+  color: #777777;
+
+  font-size: 12px;
+}
+
+.ready-message strong {
+  color: #1e8b61;
+}
+
+.false-message strong {
+  color: #d52e45;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.start-button,
+.primary-button,
+.secondary-button,
+.try-again-button,
+.cancel-button {
+  width: 100%;
+
+  padding: 14px 18px;
+
+  border-radius: 12px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.08s ease,
+    box-shadow 0.08s ease;
+}
+
+.start-button,
+.primary-button {
+  border: 2px solid #171717;
+
+  background: #d52e45;
+
+  color: #ffffff;
+
+  box-shadow:
+    4px 4px 0 #171717;
+}
+
+.start-button:hover,
+.primary-button:hover {
+  transform:
+    translate(-1px, -1px);
+}
+
+.start-button:active,
+.primary-button:active {
+  transform:
+    translate(3px, 3px);
+
+  box-shadow:
+    1px 1px 0 #171717;
+}
+
+.start-button:disabled,
+.primary-button:disabled {
+  opacity: 0.6;
+
+  cursor: wait;
+}
+
+.secondary-button {
+  border: 2px solid #171717;
+
+  background: #f2c94c;
+
+  color: #171717;
+
+  box-shadow:
+    4px 4px 0 #171717;
+}
+
+.secondary-button:hover {
+  transform:
+    translate(-1px, -1px);
+}
+
+.secondary-button:active {
+  transform:
+    translate(3px, 3px);
+
+  box-shadow:
+    1px 1px 0 #171717;
+}
+
+.try-again-button {
+  margin-top: 11px;
+
+  border: 1.5px solid #171717;
+
+  background: transparent;
+
+  color: #171717;
+}
+
+.try-again-button:hover {
+  background: #f6f0df;
+}
+
+.cancel-button {
+  margin-top: 15px;
+
+  border: 1.5px solid #171717;
+
+  background: transparent;
+}
+
+/* =========================================================
+   RESULT
+========================================================= */
+
+.result-section {
+  margin-top: 20px;
+}
+
+.result-time {
+  display: flex;
+
+  align-items: baseline;
+
+  justify-content: center;
+
+  gap: 7px;
+
+  font-family:
+    "Space Mono",
+    monospace;
+
+  font-size: clamp(
+    48px,
+    14vw,
+    72px
+  );
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: -0.06em;
+}
+
+.result-time small {
+  font-family:
+    "DM Sans",
+    sans-serif;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 0;
+}
+
+.rating {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  margin: 12px 0 17px;
+
+  text-align: center;
+}
+
+.rating strong {
+  font-family:
+    "Bricolage Grotesque",
+    sans-serif;
+
+  font-size: 21px;
+}
+
+.rating span {
+  margin-top: 4px;
+
+  color: #777777;
+
+  font-size: 12px;
+}
+
+/* =========================================================
+   BEST
+========================================================= */
+
+.best-time {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-bottom: 18px;
+
+  padding: 11px 14px;
+
+  border: 1.5px solid #171717;
+
+  border-radius: 11px;
+
+  background: #f6f0df;
+}
+
+.best-time span {
+  font-family:
+    "Space Mono",
+    monospace;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.06em;
+}
+
+.best-time strong {
+  font-family:
+    "Space Mono",
+    monospace;
+
+  font-size: 15px;
+}
+
+/* =========================================================
+   SHARE BADGE
+========================================================= */
+
+.share-badge {
+  position: relative;
+
+  min-height: 365px;
+
+  overflow: hidden;
+
+  margin-bottom: 20px;
+
+  border: 2px solid #171717;
+
+  border-radius: 18px;
+
+  background: #fffdf7;
+}
+
+.badge-corner-red {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 145px;
+  height: 145px;
+
+  background: #d52e45;
+
+  clip-path:
+    polygon(
+      0 0,
+      100% 0,
+      0 100%
+    );
+}
+
+.badge-corner-green {
+  position: absolute;
+
+  right: 0;
+  bottom: 0;
+
+  width: 145px;
+  height: 145px;
+
+  background: #1e8b61;
+
+  clip-path:
+    polygon(
+      100% 0,
+      100% 100%,
+      0 100%
+    );
+}
+
+.badge-content {
+  position: relative;
+
+  z-index: 1;
+
+  min-height: 365px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  padding:
+    23px 25px;
+}
+
+.badge-top {
+  display: flex;
+
+  justify-content: space-between;
+
+  color: #777777;
+
+  font-family:
+    "Space Mono",
+    monospace;
+
+  font-size: 8px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.06em;
+}
+
+.badge-title {
+  margin-top: 22px;
+
+  font-family:
+    "Bricolage Grotesque",
+    sans-serif;
+
+  font-size: 45px;
+
+  font-weight: 800;
+
+  line-height: 0.84;
+
+  letter-spacing: -0.055em;
+}
+
+.badge-label {
+  margin-top: 23px;
+
+  color: #777777;
+
+  font-family:
+    "Space Mono",
+    monospace;
+
+  font-size: 8px;
+
+  font-weight: 700;
+}
+
+.badge-name {
+  max-width: 80%;
+
+  overflow: hidden;
+
+  margin-top: 4px;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+
+  font-family:
+    "Bricolage Grotesque",
+    sans-serif;
+
+  font-size: 20px;
+
+  font-weight: 700;
+}
+
+.badge-time {
+  margin-top: 11px;
+
+  color: #d52e45;
+
+  font-family:
+    "Space Mono",
+    monospace;
+
+  font-size: clamp(
+    40px,
+    12vw,
+    58px
+  );
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: -0.07em;
+}
+
+.badge-seconds {
+  font-family:
+    "Space Mono",
+    monospace;
+
+  font-size: 8px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+}
+
+.badge-rating {
+  align-self: flex-start;
+
+  margin-top: 13px;
+
+  padding: 7px 10px;
+
+  border-radius: 7px;
+
+  background: #171717;
+
+  color: #ffffff;
+
+  font-family:
+    "Space Mono",
+    monospace;
+
+  font-size: 8px;
+
+  font-weight: 700;
+}
+
+.badge-lights {
+  display: grid;
+
+  grid-template-columns:
+    repeat(5, 18px);
+
+  gap: 6px 8px;
+
+  margin-top: auto;
+}
+
+.badge-lights span {
+  width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+
+  background: #1e8b61;
+
+  box-shadow:
+    0 0 8px
+      rgba(30, 139, 97, 0.65);
+}
+
+.badge-footer {
+  display: flex;
+
+  justify-content: space-between;
+
+  margin-top: 12px;
+
+  padding-top: 9px;
+
+  border-top: 1px solid #dddddd;
+
+  color: #777777;
+
+  font-family:
+    "Space Mono",
+    monospace;
+
+  font-size: 7px;
+
+  font-weight: 700;
+}
+
+/* =========================================================
+   RESULT ACTIONS
+========================================================= */
+
+.result-actions {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 10px;
+}
+
+/* =========================================================
+   STATS
+========================================================= */
+
+.stats {
+  display: grid;
+
+  grid-template-columns:
+    1fr 1fr;
+
+  gap: 10px;
+
+  margin-top: 20px;
+}
+
+.stats > div {
+  display: flex;
+
+  flex-direction: column;
+
+  padding:
+    11px 13px;
+
+  border: 1.5px solid #171717;
+
+  border-radius: 11px;
+
+  background: #f6f0df;
+}
+
+.stats span {
+  font-family:
+    "Space Mono",
+    monospace;
+
+  font-size: 8px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.06em;
+}
+
+.stats strong {
+  margin-top: 3px;
+
+  font-family:
+    "Space Mono",
+    monospace;
+
+  font-size: 14px;
+}
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer {
+  margin-top: 28px;
+
+  font-family:
+    "Space Mono",
+    monospace;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.07em;
+
+  text-align: center;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+  .page {
+    padding:
+      18px 12px;
+  }
+
+  .game-card {
+    padding: 21px;
+
+    border-radius: 21px;
+
+    box-shadow:
+      6px 6px 0 #171717;
+  }
+
+  .starting-gantry {
+    padding:
+      17px 10px
+      15px;
+  }
+
+  .light-grid {
+    gap: 5px;
+
+    padding:
+      6px 1px
+      14px;
+  }
+
+  .light-column {
+    gap: 7px;
+  }
+
+  .race-light {
+    max-width: 55px;
+
+    border-width: 3px;
+  }
+
+  .gantry-top {
+    font-size: 7px;
+  }
+
+  .tap-hint-go {
+    font-size: 9px;
+  }
+
+  .result-actions {
+    grid-template-columns:
+      1fr;
+  }
+
+  .share-badge {
+    min-height: 350px;
+  }
+
+  .badge-content {
+    min-height: 350px;
+  }
+
+  .badge-title {
+    font-size: 38px;
+  }
+}
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+  .game-card {
+    padding: 17px;
+  }
+
+  .light-grid {
+    gap: 3px;
+  }
+
+  .light-column {
+    gap: 5px;
+  }
+
+  .race-light {
+    max-width: 43px;
+
+    border-width: 3px;
+  }
+
+  .gantry-top {
+    font-size: 6px;
+  }
+
+  .badge-content {
+    padding: 20px;
+  }
+}
+
+/* =========================================================
+   SHORT DESKTOP
+========================================================= */
+
+@media (max-height: 800px) and (min-width: 501px) {
+  .page {
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .game-card {
+    padding: 22px;
+  }
+
+  .starting-gantry {
+    padding:
+      16px 15px
+      14px;
+  }
+
+  .light-grid {
+    padding:
+      6px 4px
+      11px;
+  }
+
+  .race-light {
+    max-width: 48px;
+  }
+
+  .instructions {
+    margin: 12px 0;
+
+    padding:
+      11px 14px;
+  }
+
+  footer {
+    margin-top: 15px;
+  }
+}
