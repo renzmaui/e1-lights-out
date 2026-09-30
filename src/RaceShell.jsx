@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import './race-accents.css';
 
 export default function RaceShell({ children }) {
   const [entered, setEntered] = useState(false);
